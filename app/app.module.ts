@@ -23,6 +23,8 @@ import { RuntimeContentComponentDemo } from './runtime-content.component.demo';
 
 import {  MainComponent, TodoAppComponent, TodoItemComponent, TodoInputComponent, FooterComponent, TodoList } from './todolist.component';
 
+import { DirectiveComponent, AComponent, AppComponentContainer} from './directive-instead-viewchild.component';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -47,7 +49,11 @@ import {  MainComponent, TodoAppComponent, TodoItemComponent, TodoInputComponent
         TodoItemComponent,
         TodoInputComponent,
         TodoAppComponent,
-        FooterComponent
+        FooterComponent,
+
+        DirectiveComponent, 
+        AComponent, 
+        AppComponentContainer
     ],
     providers: [
         TodoList
@@ -55,7 +61,9 @@ import {  MainComponent, TodoAppComponent, TodoItemComponent, TodoInputComponent
     entryComponents: [
         DynamicSample1Component, 
         DynamicSample2Component, 
-        UnknownDynamicComponent
+        UnknownDynamicComponent,
+
+        AComponent
     ],
     bootstrap: [AppComponent]
 })
