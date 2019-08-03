@@ -1,5 +1,5 @@
 //our root app component
-import {Component, NgModule, Inject, Directive, ViewContainerRef, ComponentFactoryResolver, ViewChild, VERSION, Input, Output, HostListener, EventEmitter, HostBinding } from '@angular/core';
+import {Component, NgModule, Inject, Directive, ViewContainerRef, ComponentFactoryResolver, ViewChild, VERSION, Input, Output, HostListener, EventEmitter, HostBinding, ElementRef, TemplateRef } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 @Directive({
@@ -30,7 +30,8 @@ export class AComponent {
 
     onClick() {
         console.log(this.vc);
-        this.vc.remove();
+        this.vc.clear();
+        // this.vc.remove();
     //   console.log(this.vc, targetElement);
     //   this.myClick.emit(this.vc);
     }
@@ -92,5 +93,22 @@ export class DirectiveComponent {
 
   destroyContainer(vc: ViewContainerRef){
       shared.destroyContainer(vc);
+  }
+}
+
+
+
+/***custom events */
+
+@Component({
+    selector: 'child',
+    template: `
+      <h2 (click)="fire($event.target)">I am Child. Click on me</h2>
+    `
+})
+export class Child {
+  fire(target: any) {
+      console.log(target)
+      target.dispatchEvent(new Event('customEvent', { bubbles: true }));
   }
 }

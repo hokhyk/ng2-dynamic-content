@@ -25,6 +25,8 @@ import {  MainComponent, TodoAppComponent, TodoItemComponent, TodoInputComponent
 
 import { DirectiveComponent, AComponent, AppComponentContainer} from './directive-instead-viewchild.component';
 
+import { Child } from './directive-instead-viewchild.component';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -53,7 +55,9 @@ import { DirectiveComponent, AComponent, AppComponentContainer} from './directiv
 
         DirectiveComponent, 
         AComponent, 
-        AppComponentContainer
+        AppComponentContainer,
+
+        Child
     ],
     providers: [
         TodoList
