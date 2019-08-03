@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+import './globals';
+
 import { AppComponent } from './app.component';
 
 import { TListComponent } from './tlist.component';
