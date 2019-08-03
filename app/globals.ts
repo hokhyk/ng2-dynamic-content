@@ -4,6 +4,7 @@ import * as compiler from '@angular/compiler';
 import * as browser from '@angular/platform-browser';
 import * as browserd from '@angular/platform-browser-dynamic';
 import {isDevMode} from '@angular/core';
+import * as todoApp from  './todolist.component'; 
 
 if (isDevMode()) {
   window['@angular/core'] = core;
@@ -11,4 +12,5 @@ if (isDevMode()) {
   window['@angular/compiler'] = compiler;
   window['@angular/platform-browser'] = browser;
   window['@angular/platform-browser-dynamic'] = browserd;
+  window['todoApp'] = todoApp;
 }

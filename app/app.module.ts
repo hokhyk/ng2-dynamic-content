@@ -21,7 +21,7 @@ import { RuntimeContentComponent } from './runtime-content.component';
 import { RuntimeContentComponentDemo } from './runtime-content.component.demo';
 
 
-import {  MainComponent, TodoAppComponent, TodoComponent, TodoInputComponent, FooterComponent, TodoList } from './todolist.component';
+import {  MainComponent, TodoAppComponent, TodoItemComponent, TodoInputComponent, FooterComponent, TodoList } from './todolist.component';
 
 @NgModule({
     imports: [
@@ -44,7 +44,7 @@ import {  MainComponent, TodoAppComponent, TodoComponent, TodoInputComponent, Fo
         RuntimeContentComponentDemo,
 
         MainComponent,
-        TodoComponent,
+        TodoItemComponent,
         TodoInputComponent,
         TodoAppComponent,
         FooterComponent

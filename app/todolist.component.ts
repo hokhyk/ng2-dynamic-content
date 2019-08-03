@@ -24,6 +24,7 @@ export class TodoList {
   }
 }
 
+
 @Component({
   selector: 'todo-item',
   styles: [
@@ -32,17 +33,17 @@ export class TodoList {
     }`
   ],
   template: `
-    <div [class.completed]="todo.completed">
+    <li [class.completed]="todo.completed">
       <input type="checkbox"
         [(ngModel)]="todo.completed"
         (change)="completionChanged(todo)">
       {{todo.title}}
-    </div>
+    </li>
   `
 })
-export class TodoComponent {
-  @Output() onCompletionChange = new EventEmitter<Todo>();
-  @Input() todo: Todo;
+export class TodoItemComponent {
+  @Output('onChange') onCompletionChange = new EventEmitter<Todo>();
+  @Input('todoItem') todo: Todo;
   completionChanged(todo: Todo) {
     this.onCompletionChange.emit(todo);
   }
@@ -79,6 +80,12 @@ export class FooterComponent {
 @Component({
   selector: 'todo-app',
   viewProviders: [TodoList],
+  styles: [`
+    .u-margin {
+        margin-top: 0;
+    }
+    section h4 { margin: 0 }
+  `],
   template: `
     <section>
       Add todo:
@@ -86,8 +93,10 @@ export class FooterComponent {
     </section>
     <section>
       <h4 *ngIf="todos.getAll().length">Todo list</h4>
-      <todo-item *ngFor="let todo of todos.getAll()" [todo]="todo">
-      </todo-item>
+      <ul ngClass="u-margin">
+        <todo-item *ngFor="let todo of todos.getAll()" [todoItem]="todo" (onChange)="addTodo($event)">
+        </todo-item>
+      </ul>
     </section>
     <ng-content select="app-footer"></ng-content>
   `
@@ -96,10 +105,12 @@ export class TodoAppComponent {
   @ViewChild(TodoInputComponent)
   input: TodoInputComponent;
 
-  constructor(public todos: TodoList) {}
+  constructor(private todos: TodoList) {}
+
   addTodo(todo: Todo) {
     this.todos.add(todo);
   }
+
   ngAfterViewInit() {
     // console.log(this.input);
   }
