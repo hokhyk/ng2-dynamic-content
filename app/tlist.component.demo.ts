@@ -6,17 +6,19 @@ import { Component } from '@angular/core';
         <div>
             <h2>Templated list</h2>
             <tlist [items]="items">
-                <ng-template let-item="$implicit" let-i="index">
-                    <li>[{{i}}] Hello: {{item.title}}</li>
-                </ng-template>
+            <h1>here is not queried by @contentChild</h1>
+                // <ng-template let-item="$implicit" let-i="index">
+                //     <li>[{{i}}] Hello: {{item.title}}</li>
+                <h5>here is queried by @contentChild</h5>
+                // </ng-template>
             </tlist>
         </div>
     `
 })
 export class TListComponentDemo {
     items: any[] = [
-        { title: 'Item 1' },
-        { title: 'Item 2' },
-        { title: 'Item 3' }
+        { title: 'list Item 1' },
+        { title: 'list Item 2' },
+        { title: 'list Item 3' }
     ];
 }

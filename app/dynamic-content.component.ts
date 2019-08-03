@@ -68,13 +68,13 @@ export abstract class DynamicComponent {
 
 @Component({
     selector: 'dynamic-sample-1',
-    template: `<div>Dynamic sample 1 ({{context?.text}})</div>`
+    template: `<div>Dynamic component sample 1 ({{context?.text}})</div>`
 })
 export class DynamicSample1Component extends DynamicComponent {}
 
 @Component({
     selector: 'dynamic-sample-2',
-    template: `<div>Dynamic sample 2 ({{context?.text}})</div>`
+    template: `<div>Dynamic component sample 2 ({{context?.text}})</div>`
 })
 export class DynamicSample2Component extends DynamicComponent {}
 

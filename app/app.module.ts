@@ -20,6 +20,9 @@ import { DynamicContentComponentDemo } from './dynamic-content.component.demo';
 import { RuntimeContentComponent } from './runtime-content.component';
 import { RuntimeContentComponentDemo } from './runtime-content.component.demo';
 
+
+import {  MainComponent, TodoAppComponent, TodoComponent, TodoInputComponent, FooterComponent, TodoList } from './todolist.component';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -38,7 +41,16 @@ import { RuntimeContentComponentDemo } from './runtime-content.component.demo';
         DynamicContentComponentDemo,
 
         RuntimeContentComponent,
-        RuntimeContentComponentDemo
+        RuntimeContentComponentDemo,
+
+        MainComponent,
+        TodoComponent,
+        TodoInputComponent,
+        TodoAppComponent,
+        FooterComponent
+    ],
+    providers: [
+        TodoList
     ],
     entryComponents: [
         DynamicSample1Component, 
